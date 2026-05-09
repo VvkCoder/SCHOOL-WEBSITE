@@ -1,5 +1,5 @@
-import dotenv from "dotenv"
-dotenv.config()
+import dotenv from "dotenv";
+dotenv.config();
 import express from "express";
 import cors from "cors";
 import nodemailer from "nodemailer";
@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://vvkschool-website.netlify.app'
+    'https://vvksunriseschool.netlify.app'
   ]
 }))
 app.use(express.json())
@@ -97,6 +97,8 @@ app.post('/send-email', async (req, res) => {
 })
 
 // Start server
-app.listen(5000, () => {
-  console.log('Server running on http://localhost:5000 🚀')
-})
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT} 🚀`);
+});
