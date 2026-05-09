@@ -13,7 +13,7 @@ function handleSubmit(e){
   setSending(true)
   setStatus("")
 
-  fetch('http://localhost:5000/send-email', {
+  fetch('https://school-website-ln24.onrender.com/send-email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

@@ -17,7 +17,7 @@ function AdmissionModal({ onClose }) {
     setStatus("")
 
     try {
-      const response = await fetch("http://localhost:5000/send-admission", {
+      const response = await fetch("https://school-website-ln24.onrender.com/send-admission", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
