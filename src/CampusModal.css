@@ -1,0 +1,125 @@
+.campus-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.campus-box {
+  background: #f9f7ff;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 50px 40px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.campus-close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #555;
+}
+
+.campus-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.campus-tag {
+  color: #7c4dbb;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.campus-header h2 {
+  font-size: 38px;
+  color: #1a1a2e;
+  font-weight: 800;
+  margin-bottom: 15px;
+}
+
+.campus-header h2 span {
+  color: #7c4dbb;
+}
+
+.campus-desc {
+  color: #666;
+  font-size: 15px;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.campus-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.campus-card {
+  background: white;
+  border: 1.5px solid #e8e0f5;
+  border-radius: 14px;
+  padding: 25px 20px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.campus-card:hover {
+  border-color: #7c4dbb;
+  box-shadow: 0 5px 20px rgba(124,77,187,0.15);
+  transform: translateY(-3px);
+}
+
+.campus-card h3 {
+  font-size: 18px;
+  color: #1a1a2e;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.campus-schools {
+  color: #7c4dbb;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.campus-boards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  justify-content: center;
+}
+
+.board-tag {
+  background: #f0eaff;
+  color: #555;
+  font-size: 11px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid #e0d5f5;
+}
+
+@media (max-width: 768px) {
+  .campus-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
