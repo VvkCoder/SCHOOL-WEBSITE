@@ -10,7 +10,7 @@ const app = express();
 app.use(cors({
   origin: [
     'http://localhost:5173',
-    'https://vvksunriseschool.netlify.app'
+    'https://vvksunriseschool.vercel.app'
   ]
 }))
 app.use(express.json())
