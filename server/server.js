@@ -18,14 +18,9 @@ app.use(express.json())
 
 // Email transporter
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
+  host: "smtp-relay.brevo.com",
   port: 587,
   secure: false,
-  requireTLS: true,
-  tls: {
-    rejectUnauthorized: false,
-    family: 4
-  },
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
@@ -36,7 +31,7 @@ transporter.verify((error, success) => {
   if (error) {
     console.log("SMTP ERROR:", error)
   } else {
-    console.log("Gmail server is ready ✅")
+    console.log("Brevo SMTP server is ready ✅")
   }
 })
 
@@ -51,7 +46,8 @@ app.post('/send-admission', async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "vivek2workplace@gmail.com",
+    // to: process.env.EMAIL_USER,
     subject: `New Admission Enquiry from ${parentName}`,
     html: `
       <div style="font-family: Arial; padding: 20px;">
@@ -86,7 +82,7 @@ app.post('/send-email', async (req, res) => {
 
   const mailOptions = {
      from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "vivek2workplace@gmail.com",
     subject: `New Contact Message from ${name}`,
     html: `
       <div style="font-family: Arial; padding: 20px;">
