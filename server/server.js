@@ -25,6 +25,15 @@ const transporter = nodemailer.createTransport({
   }
 })
 
+// Verify transporter
+transporter.verify(function (error, success) {
+  if (error) {
+    console.log("SMTP ERROR:", error)
+  } else {
+    console.log("Gmail server is ready ✅")
+  }
+})
+
 transporter.verify((error, success) => {
   if (error) {
     console.log(error)
