@@ -25,6 +25,14 @@ const transporter = nodemailer.createTransport({
   }
 })
 
+transporter.verify((error, success) => {
+  if (error) {
+    console.log(error)
+  } else {
+    console.log("Gmail server is ready ✅")
+  }
+})
+
 // Test route
 app.get('/', (req, res) => {
   res.send('Server is running! 🚀')
