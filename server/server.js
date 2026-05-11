@@ -18,14 +18,12 @@ app.use(express.json())
 
 // Email transporter
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  secure: true,
-  port: 465,
+  service: 'gmail',
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+    pass: process.env.EMAIL_PASS
+  }
+})
 
 // Test route
 app.get('/', (req, res) => {
