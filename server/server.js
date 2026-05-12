@@ -8,15 +8,10 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'https://vvksunriseschool.netlify.app',
-    'https://vvksunriseschool.vercel.app'
-  ]
+  origin: "*"
 }))
 app.use(express.json())
 
-// Email transporter
 // Email transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
@@ -30,7 +25,7 @@ transporter.verify((error, success) => {
   if (error) {
     console.log("SMTP ERROR:", error)
   } else {
-   console.log("Gmail SMTP server is ready ✅")
+    console.log("SMTP server is ready ✅")
   }
 })
 
@@ -44,7 +39,7 @@ app.post('/send-admission', async (req, res) => {
   const { parentName, childName, mobile, grade, board, city } = req.body
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: `"Sunrise School" <${process.env.EMAIL_USER}>`,
     to: "vivek2workplace@gmail.com",
     // to: process.env.EMAIL_USER,
     subject: `New Admission Enquiry from ${parentName}`,
@@ -70,7 +65,7 @@ app.post('/send-admission', async (req, res) => {
     await transporter.sendMail(mailOptions)
     res.status(200).json({ success: true, message: 'Email sent!' })
   } catch (error) {
-    console.error(error)
+    console.error("EMAIL ERROR:", error)
     res.status(500).json({ success: false, message: 'Failed!' })
   }
 })
@@ -80,7 +75,7 @@ app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body
 
   const mailOptions = {
-     from: process.env.EMAIL_USER,
+    from: `"Sunrise School" <${process.env.EMAIL_USER}>`,
     to: "vivek2workplace@gmail.com",
     subject: `New Contact Message from ${name}`,
     html: `
@@ -102,7 +97,7 @@ app.post('/send-email', async (req, res) => {
     await transporter.sendMail(mailOptions)
     res.status(200).json({ success: true, message: 'Email sent!' })
   } catch (error) {
-    console.error(error)
+    console.error("EMAIL ERROR:", error)
     res.status(500).json({ success: false, message: 'Failed!' })
   }
 })
