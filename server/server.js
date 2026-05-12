@@ -43,7 +43,7 @@ app.post('/send-admission', async (req, res) => {
   const { parentName, childName, mobile, grade, board, city } = req.body
 
   const mailOptions = {
-    from: `"Sunrise School" <${process.env.EMAIL_USER}>`,
+    from: '"Sunrise School" <vivek2workplace@gmail.com>',
     to: "vivek2workplace@gmail.com",
     // to: process.env.EMAIL_USER,
     subject: `New Admission Enquiry from ${parentName}`,
@@ -82,7 +82,7 @@ app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body
 
   const mailOptions = {
-    from: `"Sunrise School" <${process.env.EMAIL_USER}>`,
+    from: '"Sunrise School" <vivek2workplace@gmail.com>',
     to: "vivek2workplace@gmail.com",
     subject: `New Contact Message from ${name}`,
     html: `
