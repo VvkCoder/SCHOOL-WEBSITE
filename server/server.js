@@ -38,6 +38,8 @@ app.get('/', (req, res) => {
 
 // Route 1 - Admission Enquiry
 app.post('/send-admission', async (req, res) => {
+
+  console.log("Request received:", req.body)
   const { parentName, childName, mobile, grade, board, city } = req.body
 
   const mailOptions = {
@@ -74,6 +76,9 @@ app.post('/send-admission', async (req, res) => {
 
 // Route 2 - Contact Form
 app.post('/send-email', async (req, res) => {
+
+  console.log("Request received:", req.body)
+
   const { name, email, message } = req.body
 
   const mailOptions = {
