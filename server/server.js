@@ -30,7 +30,7 @@ transporter.verify((error, success) => {
   if (error) {
     console.log("SMTP ERROR:", error)
   } else {
-    console.log("Brevo SMTP server is ready ✅")
+   console.log("Gmail SMTP server is ready ✅")
   }
 })
 
