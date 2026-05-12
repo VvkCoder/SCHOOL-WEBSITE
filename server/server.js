@@ -17,15 +17,14 @@ app.use(cors({
 app.use(express.json())
 
 // Email transporter
+// Email transporter
 const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   }
-})
+});
 
 transporter.verify((error, success) => {
   if (error) {
