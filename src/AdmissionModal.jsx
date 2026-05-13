@@ -199,13 +199,22 @@ function AdmissionModal({ onClose }) {
                  value={mobile}
                  onChange={(e) => {
                  const value = e.target.value
-                 if(/^\d{0,10}$/.test(value)){
+
+                 if (/^\d{0,10}$/.test(value)) {
                  setMobile(value)
-                  }
-             }}
+             }
+    }}
+                minLength={10}
                 maxLength={10}
+                pattern="[0-9]{10}"
                 required
-              />
+                onInvalid={(e) =>
+                e.target.setCustomValidity(
+                "Please enter a valid 10-digit mobile number"
+              )
+              }
+                onInput={(e) => e.target.setCustomValidity("")}
+                 />
               </div>
               <div className="modal-form-group">
                 <label>BOARD PREFERENCE</label>
