@@ -56,27 +56,22 @@ function handleSubmit(e){
                           required
                         /> */}
 
-                        <input
-                         type="text"
-                         placeholder="Enter your name"
-                         value={name}
-                         onChange={(e) => {
-                         const value = e.target.value
-
-                         if (/^[A-Za-z ]*$/.test(value)) {
-                         setName(value)
-                       }
-                       }}
-                       minLength={2}
-                       maxLength={50}
-                       required
-                       onInvalid={(e) =>
-                       e.target.setCustomValidity(
-                       "Name should contain only letters"
-                       )
-                }
-                       onInput={(e) => e.target.setCustomValidity("")}
-                      />
+                       <input
+                        type="text"
+                        placeholder="Enter your name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        pattern="[A-Za-z ]+"
+                        minLength={2}
+                        maxLength={50}
+                        required
+                        onInvalid={(e) =>
+                        e.target.setCustomValidity(
+                        "Name should contain only letters"
+                  )
+              }
+                         onInput={(e) => e.target.setCustomValidity("")}
+                        />
                     </div>
 
                    <div className="form-group">
@@ -87,11 +82,14 @@ function handleSubmit(e){
                     placeholder="Enter your email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                     required
                     onInvalid={(e) =>
-                    e.target.setCustomValidity("Please enter a valid email address")
-                    }
-                    onInput={(e) => e.target.setCustomValidity("")}
+                    e.target.setCustomValidity(
+                    "Please enter a valid email address"
+                )
+              }
+                     onInput={(e) => e.target.setCustomValidity("")}
                     />
                    </div>
 
