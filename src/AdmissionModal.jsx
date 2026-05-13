@@ -17,6 +17,7 @@ function AdmissionModal({ onClose }) {
     setStatus("")
 
     try {
+            
       const response = await fetch("https://school-website-ln24.onrender.com/send-admission", {
         method: "POST",
         headers: {
@@ -149,12 +150,18 @@ function AdmissionModal({ onClose }) {
               <div className="modal-form-group">
                 <label>MOBILE NUMBER</label>
                 <input
-                  type="text"
-                  placeholder="+91 XXXXX XXXXX"
-                  value={mobile}
-                  onChange={(e) => setMobile(e.target.value)}
-                  required
-                />
+                 type="tel"
+                 placeholder="+91 XXXXX XXXXX"
+                 value={mobile}
+                 onChange={(e) => {
+                 const value = e.target.value
+                 if(/^\d{0,10}$/.test(value)){
+                 setMobile(value)
+                  }
+             }}
+                maxLength={10}
+                required
+              />
               </div>
               <div className="modal-form-group">
                 <label>BOARD PREFERENCE</label>
