@@ -13,7 +13,7 @@ function handleSubmit(e){
   setSending(true)
   setStatus("")
 
-  fetch('https://school-website-ln24.onrender.com/send-email', {
+    fetch('https://school-website-ln24.onrender.com/send-email', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -48,25 +48,52 @@ function handleSubmit(e){
 
                     <div className="form-group">
                         <label>Full Name</label>
-                        <input
+                        {/* <input
                           type="text"
                           placeholder="Enter your name"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           required
-                        />
+                        /> */}
+
+                        <input
+                         type="text"
+                         placeholder="Enter your name"
+                         value={name}
+                         onChange={(e) => {
+                         const value = e.target.value
+
+                         if (/^[A-Za-z ]*$/.test(value)) {
+                         setName(value)
+                       }
+                       }}
+                       minLength={2}
+                       maxLength={50}
+                       required
+                       onInvalid={(e) =>
+                       e.target.setCustomValidity(
+                       "Name should contain only letters"
+                       )
+                }
+                       onInput={(e) => e.target.setCustomValidity("")}
+                      />
                     </div>
 
-                    <div className="form-group">
-                        <label>Email Address</label>
-                        <input
-                          type="email"
-                          placeholder="Enter your email"
-                          value={email}
-                          onChange={(e) => setEmail(e.target.value)}
-                          required
-                        />
-                    </div>
+                   <div className="form-group">
+                   <label>Email Address</label>
+
+                   <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    onInvalid={(e) =>
+                    e.target.setCustomValidity("Please enter a valid email address")
+                    }
+                    onInput={(e) => e.target.setCustomValidity("")}
+                    />
+                   </div>
 
                     <div className="form-group">
                         <label>Message</label>
