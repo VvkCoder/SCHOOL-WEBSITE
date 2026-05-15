@@ -32,10 +32,11 @@ function handleSubmit(e){
     }
     setSending(false)
   })
-  .catch(() => {
-    setStatus("error")
-    setSending(false)
-  })
+  .catch((error) => {
+  console.error("FRONTEND ERROR:", error)
+  setStatus("error")
+  setSending(false)
+})
 }
 
     return(
