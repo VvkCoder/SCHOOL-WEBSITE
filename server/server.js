@@ -8,8 +8,16 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: "*"
+  origin: [
+    "http://localhost:5173",
+    "https://vvksunriseschool.vercel.app"
+  ],
+  methods: ["GET", "POST"],
+  credentials: true
 }))
+
+app.options("*", cors())
+
 app.use(express.json())
 
 // Email transporter
