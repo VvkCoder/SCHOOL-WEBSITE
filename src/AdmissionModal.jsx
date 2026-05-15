@@ -218,6 +218,7 @@ function AdmissionModal({ onClose }) {
                 <option>Delhi</option>
                 <option>Pune</option>
                 <option>Bangalore</option>
+                <option>Other</option>
               </select>
             </div>
 
