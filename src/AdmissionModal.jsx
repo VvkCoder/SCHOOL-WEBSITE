@@ -107,20 +107,12 @@ function AdmissionModal({ onClose }) {
 
             <div className="modal-form-group">
               <label>PARENT / GUARDIAN NAME</label>
-              {/* <input
-                type="text"
-                placeholder="Your full name"
-                value={parentName}
-                onChange={(e) => setParentName(e.target.value)}
-                required
-              /> */}
-
-             <input
+              <input
               type="text"
               placeholder="Your full name"
               value={parentName}
               onChange={(e) => setParentName(e.target.value)}
-              pattern="[A-Za-z ]+"
+              pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
               minLength={2}
               maxLength={50}
               required
@@ -136,20 +128,12 @@ function AdmissionModal({ onClose }) {
             <div className="modal-row">
               <div className="modal-form-group">
                 <label>CHILD'S NAME</label>
-                {/* <input
-                  type="text"
-                  placeholder="Child's name"
-                  value={childName}
-                  onChange={(e) => setChildName(e.target.value)}
-                  required
-                /> */}
-
                 <input
                  type="text"
                  placeholder="Child's name"
                  value={childName}
                  onChange={(e) => setChildName(e.target.value)}
-                 pattern="[A-Za-z ]+"
+                 pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
                  minLength={2}
                  maxLength={50}
                  required
