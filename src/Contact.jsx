@@ -48,15 +48,7 @@ function handleSubmit(e){
 
                     <div className="form-group">
                         <label>Full Name</label>
-                        {/* <input
-                          type="text"
-                          placeholder="Enter your name"
-                          value={name}
-                          onChange={(e) => setName(e.target.value)}
-                          required
-                        /> */}
-
-                       <input
+                        <input
                         type="text"
                         placeholder="Enter your name"
                         value={name}
@@ -76,32 +68,36 @@ function handleSubmit(e){
 
                    <div className="form-group">
                    <label>Email Address</label>
-
                    <input
-                    type="email"
-                    placeholder="Enter your email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                    required
-                    onInvalid={(e) =>
-                    e.target.setCustomValidity(
-                    "Please enter a valid email address"
-                )
-              }
-                     onInput={(e) => e.target.setCustomValidity("")}
-                    />
+                     type="email"
+                     placeholder="Enter your email"
+                     value={email}
+                     onChange={(e) => setEmail(e.target.value.trim())}
+                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                     autoComplete="off"
+                     autoCorrect="off"
+                     spellCheck="false"
+                     required
+                     onInvalid={(e) =>
+                     e.target.setCustomValidity(
+                     "Please enter a valid email address"
+                      )
+                     }
+                      onInput={(e) => e.target.setCustomValidity("")}
+                     />
                    </div>
 
                     <div className="form-group">
                         <label>Message</label>
                         <textarea
-                          placeholder="Write your message"
-                          rows="5"
-                          value={message}
-                          onChange={(e) => setMessage(e.target.value)}
-                          required
-                        />
+                         placeholder="Write your message"
+                         rows="5"
+                         value={message}
+                         onChange={(e) => setMessage(e.target.value)}
+                         minLength={10}
+                         maxLength={500}
+                         required
+                         />
                     </div>
 
                     {status === "success" && (
