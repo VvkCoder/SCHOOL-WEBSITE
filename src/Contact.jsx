@@ -53,7 +53,13 @@ function handleSubmit(e){
                         type="text"
                         placeholder="Enter your name"
                         value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        onChange={(e) => {
+                        const value = e.target.value
+
+                        if (/^[A-Za-z ]*$/.test(value)) {
+                        setName(value)
+                         }
+                      }}
                         pattern="[A-Za-z ]+"
                         minLength={2}
                         maxLength={50}
@@ -61,8 +67,8 @@ function handleSubmit(e){
                         onInvalid={(e) =>
                         e.target.setCustomValidity(
                         "Name should contain only letters"
-                  )
-              }
+                           )
+                        }
                          onInput={(e) => e.target.setCustomValidity("")}
                         />
                     </div>
@@ -70,22 +76,21 @@ function handleSubmit(e){
                    <div className="form-group">
                    <label>Email Address</label>
                    <input
-                     type="email"
-                     placeholder="Enter your email"
-                     value={email}
-                     onChange={(e) => setEmail(e.target.value.trim())}
-                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                     autoComplete="off"
-                     autoCorrect="off"
-                     spellCheck="false"
-                     required
-                     onInvalid={(e) =>
-                     e.target.setCustomValidity(
-                     "Please enter a valid email address"
-                      )
-                     }
-                      onInput={(e) => e.target.setCustomValidity("")}
-                     />
+                   type="email"
+                   placeholder="Enter your email"
+                   value={email}
+                   onChange={(e) => setEmail(e.target.value.trim())}
+                   pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+                   autoComplete="email"
+                   spellCheck="false"
+                   required
+                   onInvalid={(e) =>
+                   e.target.setCustomValidity(
+                   "Please enter a valid email address"
+                    )
+                    }
+                   onInput={(e) => e.target.setCustomValidity("")}
+                    />
                    </div>
 
                     <div className="form-group">
