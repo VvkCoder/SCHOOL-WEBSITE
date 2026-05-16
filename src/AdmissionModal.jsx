@@ -111,7 +111,13 @@ function AdmissionModal({ onClose }) {
               type="text"
               placeholder="Your full name"
               value={parentName}
-              onChange={(e) => setParentName(e.target.value)}
+              onChange={(e) => {
+              const value = e.target.value
+
+              if (/^[A-Za-z ]*$/.test(value)) {
+              setParentName(value)
+              }
+            }}
               pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
               minLength={2}
               maxLength={50}
@@ -132,7 +138,13 @@ function AdmissionModal({ onClose }) {
                  type="text"
                  placeholder="Child's name"
                  value={childName}
-                 onChange={(e) => setChildName(e.target.value)}
+                 onChange={(e) => {
+                 const value = e.target.value
+
+                 if (/^[A-Za-z ]*$/.test(value)) {
+                 setChildName(value)
+                  }
+                  }}
                  pattern="^[A-Za-z]+(?: [A-Za-z]+)*$"
                  minLength={2}
                  maxLength={50}
@@ -176,18 +188,19 @@ function AdmissionModal({ onClose }) {
 
                  if (/^\d{0,10}$/.test(value)) {
                  setMobile(value)
-             }
-    }}
-                minLength={10}
-                maxLength={10}
-                pattern="[0-9]{10}"
-                required
-                onInvalid={(e) =>
-                e.target.setCustomValidity(
-                "Please enter a valid 10-digit mobile number"
+               }
+               }}
+                 required
+                 minLength={10}
+                 maxLength={10}
+                 pattern="\d{10}"
+                 inputMode="numeric"
+                 onInvalid={(e) =>
+                 e.target.setCustomValidity(
+                 "Please enter a valid 10-digit mobile number"
               )
-              }
-                onInput={(e) => e.target.setCustomValidity("")}
+            }
+                 onInput={(e) => e.target.setCustomValidity("")}
                  />
               </div>
               <div className="modal-form-group">
