@@ -51,7 +51,7 @@ app.post('/send-admission', async (req, res) => {
   const { parentName, childName, mobile, grade, board, city } = req.body
 
   const mailOptions = {
-    from: '"Sunrise School" <vivek2workplace@gmail.com>',
+    from: '"Sunrise International High School" <vivek2workplace@gmail.com>',
     to: "vivek2workplace@gmail.com",
     // to: process.env.EMAIL_USER,
     subject: `New Admission Enquiry from ${parentName}`,
@@ -67,7 +67,7 @@ app.post('/send-admission', async (req, res) => {
         <p><strong>City:</strong> ${city}</p>
         <hr/>
         <p style="color: #888; font-size: 12px;">
-          Sent from Sunrise School Website
+          Sent from Sunrise International High School Website
         </p>
       </div>
     `
@@ -90,7 +90,7 @@ app.post('/send-email', async (req, res) => {
   const { name, email, message } = req.body
 
   const mailOptions = {
-    from: '"Sunrise School" <vivek2workplace@gmail.com>',
+    from: '"Sunrise International High School" <vivek2workplace@gmail.com>',
     to: "vivek2workplace@gmail.com",
     subject: `New Contact Message from ${name}`,
     html: `
@@ -102,7 +102,7 @@ app.post('/send-email', async (req, res) => {
         <p><strong>Message:</strong> ${message}</p>
         <hr/>
         <p style="color: #888; font-size: 12px;">
-          Sent from Sunrise School Website
+          Sent from Sunrise International High School Website
         </p>
       </div>
     `
