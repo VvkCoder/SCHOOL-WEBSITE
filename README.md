@@ -19,7 +19,7 @@ A full-stack school website built with React.js and Node.js.
 - Build Tool: Vite
 
 ## Live Demo
-Coming soon...
+https://vvksunriseschool.vercel.app/
 
 ## Author
 Vivek S. Pal
